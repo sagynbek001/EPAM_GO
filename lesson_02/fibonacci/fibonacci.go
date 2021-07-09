@@ -2,7 +2,7 @@ package fibonacci
 
 import "fmt"
 
-func printFibLoop(n int) {
+func PrintFibLoop(n int) {
 	a := 0
 	b := 1
 	for count := 1; count <= n; count++ {
@@ -14,7 +14,7 @@ func printFibLoop(n int) {
 	fmt.Println()
 }
 
-func printFibRecursion(n int) {
+func PrintFibRecursion(n int) {
 	for count := 1; count <= n; count++ {
 		fmt.Printf("%d ", fibNth(count))
 	}
