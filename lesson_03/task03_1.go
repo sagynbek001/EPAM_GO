@@ -17,7 +17,7 @@ func main() {
 	exampleSlice1 := []string{"one", "two", "three", "four"}
 	fmt.Println("2. Slices task1")
 	fmt.Println("The given slice is:", exampleSlice1)
-	fmt.Printf("The longest word in the slice is: %s\n\n", max(exampleSlice1))
+	fmt.Printf("The longest word in the slice is: %s\n\n", getLongestWord(exampleSlice1))
 
 	// Slices task2
 	exampleSlice2 := []int64{1, 2, 3, 4, 5, 6, 7, 8}
@@ -42,22 +42,21 @@ func avgArray(arr [10]int) float64 {
 	return float64(total / 10)
 }
 
-func max(s []string) string {
-	if len(s) > 0 {
-		maxlen, answerIndex := utf8.RuneCountInString(s[0]), 0
-		for i, v := range s {
-			if utf8.RuneCountInString(v) > maxlen {
-				maxlen, answerIndex = utf8.RuneCountInString(v), i
-			}
-		}
-		return s[answerIndex]
-	} else {
+func getLongestWord(s []string) string {
+	if len(s) == 0 {
 		return ""
 	}
+	maxlen, answerIndex := utf8.RuneCountInString(s[0]), 0
+	for i, v := range s {
+		if utf8.RuneCountInString(v) > maxlen {
+			maxlen, answerIndex = utf8.RuneCountInString(v), i
+		}
+	}
+		return s[answerIndex]
 }
 
 func reverse(s []int64) []int64 {
-	newslice := []int64{}
+	newslice := make([]int64, len(s)) 
 	for i := len(s) - 1; i >= 0; i-- {
 		newslice = append(newslice, s[i])
 	}
