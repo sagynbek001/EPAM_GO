@@ -11,7 +11,6 @@ func TestRectangle_Area(t *testing.T) {
 		want    float64
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
 			name:    "no zero",
 			r:       Rectangle{0, 0},
@@ -52,7 +51,6 @@ func TestRectangle_Perimeter(t *testing.T) {
 		want    float64
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
 			name:    "no zero",
 			r:       Rectangle{0, 0},
@@ -92,7 +90,6 @@ func TestRectangle_String(t *testing.T) {
 		r    Rectangle
 		want string
 	}{
-		// TODO: Add test cases.
 		{
 			name: "regular",
 			r:    Rectangle{1, 1},
