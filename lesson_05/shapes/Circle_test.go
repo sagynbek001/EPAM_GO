@@ -12,7 +12,6 @@ func TestCircle_Area(t *testing.T) {
 		want    float64
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
 			name:    "no zero",
 			c:       Circle{0},
@@ -53,7 +52,6 @@ func TestCircle_Perimeter(t *testing.T) {
 		want    float64
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
 			name:    "no zero",
 			c:       Circle{0},
@@ -93,7 +91,6 @@ func TestCircle_String(t *testing.T) {
 		c    Circle
 		want string
 	}{
-		// TODO: Add test cases.
 		{
 			name: "regular",
 			c:    Circle{2},
