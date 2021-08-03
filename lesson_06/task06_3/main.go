@@ -32,11 +32,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	if r.Method == "GET" {
+	if r.Method == http.MethodGet {
 		title := "index"
 		p, _ := loadPage(title)
 		fmt.Fprintf(w, "%s", p.Body)
-	} else if r.Method == "POST" {
+	} else if r.Method == http.MethodGet {
 		// get new value for name and address
 		name := r.PostFormValue("name")
 		address := r.PostFormValue("address")
@@ -53,14 +53,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main() {
-	// server port number
-	const port = 8080
+// server port number
+const port = 8080
 
+func main() {
 	fmt.Printf("Launching server on port: %d \n\n", port)
 
 	// set handler for route '/'
 	http.HandleFunc("/", handler)
+	
 	// start server without ending
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 }
