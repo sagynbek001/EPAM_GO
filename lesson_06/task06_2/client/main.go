@@ -12,6 +12,7 @@ import (
 
 // server port number
 const port = 8081
+const recMsg = "Message recieved: %s\n"
 
 func main() {
 	// create a dialer
@@ -51,7 +52,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		fmt.Printf("Message recieved: %s\n", getMessage[:len(getMessage)-1])
+		fmt.Printf(recMsg, getMessage[:len(getMessage)-1])
 
 		// call close to connection when we end with our tasks
 		conn.Close()
