@@ -10,6 +10,9 @@ import (
 	"time" // pkg for time constant
 )
 
+// server port number
+const port = 8081
+
 func main() {
 	// create a dialer
 	var d net.Dialer
@@ -23,10 +26,7 @@ func main() {
 		if message == "exit\n" {
 			return
 		}
-
-		// server port number
-		const port = 8081
-
+		
 		// message[:len(message) - 1] - removes '\n' for logging
 		fmt.Printf("Sending message: %s; to port: %d\n", message[:len(message)-1], port)
 
