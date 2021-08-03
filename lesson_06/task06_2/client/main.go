@@ -13,6 +13,7 @@ import (
 // server port number
 const port = 8081
 const recMsg = "Message recieved: %s\n"
+const sendMsg = "Sending message: %s; to port: %d\n"
 
 func main() {
 	// create a dialer
@@ -29,7 +30,7 @@ func main() {
 		}
 		
 		// message[:len(message) - 1] - removes '\n' for logging
-		fmt.Printf("Sending message: %s; to port: %d\n", message[:len(message)-1], port)
+		fmt.Printf(sendMsg, message[:len(message)-1], port)
 
 		// create call context that should close when timeout reached
 		ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
