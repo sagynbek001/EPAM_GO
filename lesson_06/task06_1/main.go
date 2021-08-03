@@ -34,10 +34,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "%s\n", new_json)
 }
 
-func main() {
-	// server port number
-	const port = 8080
+// server port number
+const port = 8080
 
+func main() {
 	fmt.Printf("Launching server on port: %d \n\n", port)
 
 	// set handler for route '/'
