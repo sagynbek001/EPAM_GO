@@ -36,7 +36,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		title := "index"
 		p, _ := loadPage(title)
 		fmt.Fprintf(w, "%s", p.Body)
-	} else if r.Method == http.MethodGet {
+	} else if r.Method == http.MethodPost {
 		// get new value for name and address
 		name := r.PostFormValue("name")
 		address := r.PostFormValue("address")
