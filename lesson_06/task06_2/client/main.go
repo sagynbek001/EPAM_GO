@@ -10,6 +10,11 @@ import (
 	"time" // pkg for time constant
 )
 
+// server port number
+const port = 8081
+const recMsg = "Message recieved: %s\n"
+const sendMsg = "Sending message: %s; to port: %d\n"
+
 func main() {
 	// create a dialer
 	var d net.Dialer
@@ -24,11 +29,8 @@ func main() {
 			return
 		}
 
-		// server port number
-		const port = 8081
-
 		// message[:len(message) - 1] - removes '\n' for logging
-		fmt.Printf("Sending message: %s; to port: %d\n", message[:len(message)-1], port)
+		fmt.Printf(sendMsg, message[:len(message)-1], port)
 
 		// create call context that should close when timeout reached
 		ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
@@ -51,7 +53,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		fmt.Printf("Message recieved: %s\n", getMessage[:len(getMessage)-1])
+		fmt.Printf(recMsg, getMessage[:len(getMessage)-1])
 
 		// call close to connection when we end with our tasks
 		conn.Close()
