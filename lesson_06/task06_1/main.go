@@ -31,6 +31,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 	new_json, _ := json.MarshalIndent(info, "", "    ")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	fmt.Fprintf(w, "%s\n", new_json)
 }
 
