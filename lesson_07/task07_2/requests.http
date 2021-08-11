@@ -1,0 +1,16 @@
+//http requests examples
+http://127.0.0.1:8081/rpc/list
+
+{
+    "method" : "list",
+    "name" : "randomName"
+}
+
+http://127.0.0.1:8081/rpc/register
+
+{
+    "method" : "register",
+    "name" : "randomName"
+}
+
+

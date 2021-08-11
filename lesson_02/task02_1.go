@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	
+
 	fib "github.com/sagynbek001/EPAM_GO/fibonacci"
 )
 
