@@ -1,0 +1,18 @@
+version: "1"
+services:
+    saver:    
+        build: .\saver\
+        # image: web_epam
+        ports:
+            - "8080:8080"
+        networks:
+            - webnet       
+    web:
+        build: .
+        # image: web_epam
+        ports:
+            - "8080:8080"
+        networks:
+            - webnet    
+networks:
+    webnet:
