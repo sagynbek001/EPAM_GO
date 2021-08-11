@@ -32,11 +32,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	if r.Method == http.MethodGet {
+	switch r.Method {
+	case http.MethodGet:
 		title := "index"
 		p, _ := loadPage(title)
 		fmt.Fprintf(w, "%s", p.Body)
-	} else if r.Method == http.MethodPost {
+	case http.MethodPost:
 		// get new value for name and address
 		name := r.PostFormValue("name")
 		address := r.PostFormValue("address")
@@ -48,7 +49,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		}
 		// setting the cookie
 		http.SetCookie(w, cookie)
-	} else {
+	default:
 		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
 	}
 }
@@ -61,7 +62,7 @@ func main() {
 
 	// set handler for route '/'
 	http.HandleFunc("/", handler)
-
+	
 	// start server without ending
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 }
