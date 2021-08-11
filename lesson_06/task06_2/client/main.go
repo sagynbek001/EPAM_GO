@@ -28,7 +28,7 @@ func main() {
 		if message == "exit\n" {
 			return
 		}
-
+		
 		// message[:len(message) - 1] - removes '\n' for logging
 		fmt.Printf(sendMsg, message[:len(message)-1], port)
 
