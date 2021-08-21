@@ -1,7 +1,7 @@
 version: "3.3"
 services:
     saver:    
-        build: .\saver\
+        build: saver/
         # image: web_epam
         ports:
             - "8080:8080"
