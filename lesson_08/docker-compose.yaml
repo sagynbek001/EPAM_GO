@@ -11,7 +11,7 @@ services:
         build: .
         # image: web_epam
         ports:
-            - "8080:8080"
+            - "5432:5432"
         networks:
             - webnet    
 networks:
