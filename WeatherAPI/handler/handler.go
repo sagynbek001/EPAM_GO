@@ -31,13 +31,13 @@ func NewHandlers() *Handlers {
 func (h *Handlers) Configure() *http.ServeMux {
 
 	userMux := http.NewServeMux()
-	userMux.HandleFunc("/weather", weatherAPI)
-	userMux.HandleFunc("/listRequests", listRequests)
+	userMux.HandleFunc("/weather", WeatherAPI)
+	userMux.HandleFunc("/listRequests", ListRequests)
 
 	return userMux
 }
 
-func listRequests(w http.ResponseWriter, r *http.Request) {
+func ListRequests(w http.ResponseWriter, r *http.Request) {
 	var err error
 	db, err = sql.Open("mysql", "root:1234@tcp(dbase:3306)/requestsdb") //127.0.0.1
 	if err != nil {
@@ -81,7 +81,7 @@ func listRequests(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, string(requestsJson))
 }
 
-func weatherAPI(w http.ResponseWriter, r *http.Request) {
+func WeatherAPI(w http.ResponseWriter, r *http.Request) {
 
 	cities, ok := r.URL.Query()["city"]
 

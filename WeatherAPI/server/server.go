@@ -1,7 +1,6 @@
 package server
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -18,7 +17,6 @@ func (s *Server) Run(port string, handler http.Handler) error {
 		Addr:    ":" + port,
 		Handler: handler,
 	}
-	fmt.Printf("listening at %s", port)
+	//fmt.Printf("listening at %s\n", port)
 	return s.httpServer.ListenAndServe()
-
 }
